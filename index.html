@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="control-buttons">
+        <span>Start Game</span>
+    </div>
+    <div class="info-container">
+        <div class="name">
+            Hello: <span></span>
+        </div>
+        <div class="counter">
+            Time: <span>0</span>
+        </div>
+        <div class="tries">
+            Wrong Tries: <span>0</span>
+        </div>
+    </div>
+    <div class="memory-game-blocks">
+        <div class="game-block" data-image="1">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-01.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="1">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-01.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="2">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-02.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="2">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-02.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="3">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-03.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="3">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-03.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="4">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-04.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="4">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-04.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="5">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-05.png" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="5">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-05.png" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="6">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-06.png" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="6">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-06.png" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="7">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-07.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="7">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-07.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="8">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-08.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="8">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-08.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="9">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-09.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="9">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-09.jpg">
+            </div>
+        </div>
+        <div class="game-block" data-image="10">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-10.jpg" alt="">
+            </div>
+        </div>
+        <div class="game-block" data-image="10">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="game_imgs/team-10.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="win">
+        <span class="text">Winner Winner Chicken Dinner</span>
+        <span> You Take <span class="time"></span> Seconds</span>
+    </div>
+
+
+    <audio id="success" src="audio/success.wav" preload="auto"></audio>
+    <audio id="fail" src="audio/fail.mp3" preload="auto"></audio>
+    <audio id="winner" src="audio/mixkit-medieval-show-fanfare-announcement-226.wav"></audio>
+    <audio id="back" src="audio/back music.mp3" preload="auto" loop></audio>
+
+
+    <script src="js/main.js" ></script>
+</body>
+</html>
