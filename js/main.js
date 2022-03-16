@@ -20,12 +20,11 @@ document.querySelector(".control-buttons span").onclick = function () {
 
   let count = setInterval(() => {
     document.querySelector(".counter span").innerHTML++;
-    if(counter == blocks.length) {
-        clearInterval(count);
+    if (counter == blocks.length) {
+      clearInterval(count);
     }
-}, 1000); 
+  }, 1000);
 };
-
 
 // Effect Duration
 let duration = 1000;
@@ -35,7 +34,6 @@ let blocksContainer = document.querySelector(".memory-game-blocks");
 
 // Create Array From Game Blocks
 let blocks = Array.from(blocksContainer.children);
-
 
 // Create Range Of Keys
 // let orderRange = [...Array(blocks.length).keys()];
@@ -53,9 +51,8 @@ blocks.forEach((block, index) => {
   block.addEventListener("click", function () {
     // Trigger The Flip Block Function
     flipBlock(block);
+  });
 });
-});
-
 
 // Flip Block Function
 function flipBlock(selectedBlock) {
@@ -104,16 +101,14 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
     secondBlock.classList.add("has-match");
 
     counter += 2;
-    if(counter == blocks.length) {
-        document.getElementById("winner").play();
-        setTimeout(()=>{
-          Win();
-        }, 3000);
-        setTimeout(() => {
-            location.reload();
-        }, 10000);
+    if (counter == blocks.length) {
+      document.getElementById("winner").play();
+      setTimeout(() => {
+        Win();
+      }, 3000);
+      restartButton();
     } else {
-        document.getElementById("success").play();
+      document.getElementById("success").play();
     }
   } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
@@ -155,11 +150,24 @@ function shuffle(array) {
 }
 
 function Win() {
-
   blocksContainer.remove();
 
   document.querySelector(".win").style.display = "block";
 
-  document.querySelector(".win .time").innerHTML = document.querySelector(".counter span").innerHTML;
+  document.querySelector(".win .time").innerHTML =
+    document.querySelector(".counter span").innerHTML;
+}
 
+function restartButton() {
+  setTimeout(() => {
+    let rButton = document.createElement("div");
+    rButton.appendChild(document.createTextNode("Restart"));
+    rButton.style.cssText = `width: fit-content; padding: 15px 20px; margin: 50px auto; user-select: none;
+        background-color: #009688; font-size: 25px; font-weight: bold; border-radius: 6px; cursor: pointer;`;
+    rButton.style.color = "white";
+    document.body.appendChild(rButton);
+    rButton.onclick = function () {
+      location.reload();
+    };
+  }, 8000);
 }

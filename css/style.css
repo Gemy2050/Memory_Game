@@ -28,7 +28,7 @@ body {
 }
 .info-container {
   width: 1080px;
-  /* width: 800px; */
+  width: 800px;
   margin: 20px auto 0;
   background-color: #f6f6f6;
   padding: 20px;
@@ -47,9 +47,9 @@ body {
   text-align: right;
 }
 .info-container .counter {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .memory-game-blocks {
   display: flex;
@@ -84,8 +84,8 @@ body {
   transform: rotateY(180deg);
 }
 .memory-game-blocks .game-block .back img {
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   margin-top: 30px;
 }
 .memory-game-blocks .game-block .face {
