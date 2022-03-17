@@ -29,7 +29,7 @@ body {
 .info-container {
   width: 1080px;
   width: 800px;
-  margin: 50px auto 0;
+  margin: 20px auto 0;
   background-color: #f6f6f6;
   padding: 20px;
   font-size: 24px;
@@ -54,6 +54,7 @@ body {
 .memory-game-blocks {
   display: flex;
   width: 1100px;
+  max-width: 100%;
   flex-wrap: wrap;
   margin: 20px auto;
 }
@@ -86,7 +87,7 @@ body {
 .memory-game-blocks .game-block .back img {
   width: 150px;
   height: 150px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .memory-game-blocks .game-block .face {
   position: absolute;

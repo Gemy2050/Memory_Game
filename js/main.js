@@ -162,7 +162,7 @@ function restartButton() {
   setTimeout(() => {
     let rButton = document.createElement("div");
     rButton.appendChild(document.createTextNode("Restart"));
-    rButton.style.cssText = `width: fit-content; padding: 15px 20px; margin: 50px auto; user-select: none;
+    rButton.style.cssText = `width: fit-content; padding: 15px 30px; margin: 50px auto; user-select: none;
         background-color: #009688; font-size: 25px; font-weight: bold; border-radius: 6px; cursor: pointer;`;
     rButton.style.color = "white";
     document.body.appendChild(rButton);
