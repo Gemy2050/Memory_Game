@@ -169,5 +169,6 @@ function restartButton() {
     rButton.onclick = function () {
       location.reload();
     };
-  }, 8000);
+    document.querySelector("#back").remove();
+  }, 5000);
 }
