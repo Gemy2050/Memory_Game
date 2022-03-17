@@ -76,7 +76,9 @@ body {
 }
 .memory-game-blocks .game-block .front {
   background-color: #333;
-  line-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .memory-game-blocks .game-block .front:before {
   content: "!";
