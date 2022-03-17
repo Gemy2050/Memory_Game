@@ -56,7 +56,7 @@ body {
   flex-wrap: wrap;
   margin: 20px auto;
 }
-@media(max-width: 991px) {
+@media (max-width: 991px) {
   .memory-game-blocks {
     max-width: 100%;
   }
@@ -76,7 +76,7 @@ body {
 }
 .memory-game-blocks .game-block .front {
   background-color: #333;
-  line-height: 200px;
+  line-height: 180px;
 }
 .memory-game-blocks .game-block .front:before {
   content: "!";
