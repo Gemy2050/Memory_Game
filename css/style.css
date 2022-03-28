@@ -131,3 +131,42 @@ body {
 .win span:first-child {
   margin-bottom: 15px;
 }
+.info {
+  margin-top: 50px;
+  padding: 20px 30px;
+  font-size: 25px;
+  background-color: #2196f3;
+  color: white;
+  width: 800px;
+  margin: auto;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.task {
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+.info .task:not(:last-child) {
+  margin-bottom: 10px;
+}
+.info .task span {
+  min-width: 200px;
+  overflow: hidden;
+}
+.details {
+  width: 800px;
+  margin: auto;
+  border-radius: 0;
+  padding: 10px 40px;
+  min-width: 450px;
+  font-size: 25px;
+}
+.details-container {
+  display: none;
+}

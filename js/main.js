@@ -1,7 +1,14 @@
+let seconds = document.querySelector(".counter span");
+let tries = document.querySelector(".tries span");
+let theName = document.querySelector(".name span");
 // Select The Start Game Button
 document.querySelector(".control-buttons span").onclick = function () {
   // Prompt Window To Ask For Name
   let yourName = prompt("Enter Your Name?");
+
+  if(yourName.length > 20) {
+    yourName = yourName.slice(0, 20);
+  }
 
   // If Name Is Empty
   if (yourName == null || yourName == "") {
@@ -13,7 +20,7 @@ document.querySelector(".control-buttons span").onclick = function () {
     // Set Name To Your Name
     document.querySelector(".name span").innerHTML = yourName;
   }
-
+  
   // Remove Splash Screen
   document.querySelector(".control-buttons").remove();
   document.getElementById("back").play();
@@ -21,6 +28,7 @@ document.querySelector(".control-buttons span").onclick = function () {
   let count = setInterval(() => {
     document.querySelector(".counter span").innerHTML++;
     if (counter == blocks.length) {
+      document.querySelector(".counter span").innerHTML--;
       clearInterval(count);
     }
   }, 1000);
@@ -91,6 +99,7 @@ function stopClicking() {
 let counter = 0;
 // Check Matched Block
 function checkMatchedBlocks(firstBlock, secondBlock) {
+
   let triesElement = document.querySelector(".tries span");
 
   if (firstBlock.dataset.image === secondBlock.dataset.image) {
@@ -99,9 +108,12 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
 
     firstBlock.classList.add("has-match");
     secondBlock.classList.add("has-match");
-
+  
     counter += 2;
     if (counter == blocks.length) {
+      addTaskToArray(theName.innerHTML, seconds.innerHTML, tries.innerHTML);
+      addDataToLocalStorage(arrayOfElements);
+
       document.getElementById("winner").play();
       setTimeout(() => {
         Win();
@@ -110,6 +122,7 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
     } else {
       document.getElementById("success").play();
     }
+
   } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
 
@@ -151,11 +164,12 @@ function shuffle(array) {
 
 function Win() {
   blocksContainer.remove();
+  document.querySelector(".info-container").style.display = "none";
 
   document.querySelector(".win").style.display = "block";
+  document.querySelector(".details-container").style.display = 'block';
 
-  document.querySelector(".win .time").innerHTML =
-    document.querySelector(".counter span").innerHTML;
+  document.querySelector(".win .time").innerHTML = document.querySelector(".counter span").innerHTML;
 }
 
 function restartButton() {
@@ -172,3 +186,68 @@ function restartButton() {
     document.querySelector("#back").remove();
   }, 5000);
 }
+
+let arrayOfElements = [];
+// Check if Theres Tasks In Local Storage
+if (localStorage.getItem("Data")) {
+  arrayOfElements = JSON.parse(localStorage.getItem("Data"));
+}
+
+function addTaskToArray(theName, seconds, tries) {
+
+  const data = {
+    name: theName,
+    time: `${seconds}s`,
+    tries: tries,
+    id: Date.now(),
+  }
+
+  arrayOfElements.push(data);
+  addElementsToPageFrom(arrayOfElements); 
+}
+
+function addDataToLocalStorage (array) {
+  window.localStorage.setItem("Data", JSON.stringify(array));
+}
+
+function getDataFromLocalStorage() {
+  let data = window.localStorage.getItem("Data");
+
+  if (data) {
+    let tasks = JSON.parse(data);
+    addElementsToPageFrom(tasks)
+  }
+}
+
+let infoDiv = document.querySelector(".info");
+
+function addElementsToPageFrom(arrayOfTasks) {
+
+  infoDiv.innerHTML = "";
+   // Looping On Array Of Tasks
+  arrayOfTasks.forEach((task) => {
+    // Create Main Div
+    let div = document.createElement("div");
+    div.className = "task";
+    div.setAttribute("data-id", task.id);
+    let nameSpan = document.createElement("span");
+    nameSpan.className = "name";
+    nameSpan.appendChild(document.createTextNode(task.name));
+    div.appendChild(nameSpan);
+    let timeSpan = document.createElement("span");
+    timeSpan.className = "name";
+    timeSpan.appendChild(document.createTextNode(task.time));
+    div.appendChild(timeSpan);
+    div.appendChild(document.createTextNode(task.tries));
+    // Add Task Div To Tasks Container
+    infoDiv.appendChild(div);
+
+    // let task = document.createElement("div");
+    // task.className = "task";
+
+  });
+
+}
+
+getDataFromLocalStorage();
+
