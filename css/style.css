@@ -170,3 +170,14 @@ body {
 .details-container {
   display: none;
 }
+.reset {
+  background-color: rgb(213, 11, 11);
+  color: white;
+  font-size: 20px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  display: none;
+  margin: 5px auto;
+  border: none;
+  margin-bottom: 100px;
+}

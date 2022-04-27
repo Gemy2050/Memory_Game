@@ -6,7 +6,7 @@ document.querySelector(".control-buttons span").onclick = function () {
   // Prompt Window To Ask For Name
   let yourName = prompt("Enter Your Name?");
 
-  if(yourName.length > 20) {
+  if (yourName.length > 20) {
     yourName = yourName.slice(0, 20);
   }
 
@@ -20,7 +20,7 @@ document.querySelector(".control-buttons span").onclick = function () {
     // Set Name To Your Name
     document.querySelector(".name span").innerHTML = yourName;
   }
-  
+
   // Remove Splash Screen
   document.querySelector(".control-buttons").remove();
   document.getElementById("back").play();
@@ -99,7 +99,6 @@ function stopClicking() {
 let counter = 0;
 // Check Matched Block
 function checkMatchedBlocks(firstBlock, secondBlock) {
-
   let triesElement = document.querySelector(".tries span");
 
   if (firstBlock.dataset.image === secondBlock.dataset.image) {
@@ -108,7 +107,7 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
 
     firstBlock.classList.add("has-match");
     secondBlock.classList.add("has-match");
-  
+
     counter += 2;
     if (counter == blocks.length) {
       addTaskToArray(theName.innerHTML, seconds.innerHTML, tries.innerHTML);
@@ -122,7 +121,6 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
     } else {
       document.getElementById("success").play();
     }
-
   } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
 
@@ -167,9 +165,19 @@ function Win() {
   document.querySelector(".info-container").style.display = "none";
 
   document.querySelector(".win").style.display = "block";
-  document.querySelector(".details-container").style.display = 'block';
+  document.querySelector(".details-container").style.display = "block";
+  document.querySelector(".reset").style.display = "block";
 
-  document.querySelector(".win .time").innerHTML = document.querySelector(".counter span").innerHTML;
+  document.querySelector(".win .time").innerHTML =
+  document.querySelector(".counter span").innerHTML;
+
+}
+
+document.querySelector(".reset").onclick = function() {
+  window.localStorage.clear();
+  console.log(document.querySelector(".details-container").childNodes);
+  document.querySelector(".info div").remove();
+  document.querySelector(".reset").style.display = "none";
 }
 
 function restartButton() {
@@ -194,19 +202,18 @@ if (localStorage.getItem("Data")) {
 }
 
 function addTaskToArray(theName, seconds, tries) {
-
   const data = {
     name: theName,
     time: `${seconds}s`,
     tries: tries,
     id: Date.now(),
-  }
+  };
 
   arrayOfElements.push(data);
-  addElementsToPageFrom(arrayOfElements); 
+  addElementsToPageFrom(arrayOfElements);
 }
 
-function addDataToLocalStorage (array) {
+function addDataToLocalStorage(array) {
   window.localStorage.setItem("Data", JSON.stringify(array));
 }
 
@@ -215,16 +222,15 @@ function getDataFromLocalStorage() {
 
   if (data) {
     let tasks = JSON.parse(data);
-    addElementsToPageFrom(tasks)
+    addElementsToPageFrom(tasks);
   }
 }
 
 let infoDiv = document.querySelector(".info");
 
 function addElementsToPageFrom(arrayOfTasks) {
-
   infoDiv.innerHTML = "";
-   // Looping On Array Of Tasks
+  // Looping On Array Of Tasks
   arrayOfTasks.forEach((task) => {
     // Create Main Div
     let div = document.createElement("div");
@@ -241,13 +247,7 @@ function addElementsToPageFrom(arrayOfTasks) {
     div.appendChild(document.createTextNode(task.tries));
     // Add Task Div To Tasks Container
     infoDiv.appendChild(div);
-
-    // let task = document.createElement("div");
-    // task.className = "task";
-
   });
-
 }
 
 getDataFromLocalStorage();
-
