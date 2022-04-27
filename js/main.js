@@ -175,8 +175,8 @@ function Win() {
 
 document.querySelector(".reset").onclick = function() {
   window.localStorage.clear();
-  console.log(document.querySelector(".details-container").childNodes);
-  document.querySelector(".info div").remove();
+  console.log(document.querySelector(".details-container").children);
+  document.querySelector(".details-container").remove();
   document.querySelector(".reset").style.display = "none";
 }
 
