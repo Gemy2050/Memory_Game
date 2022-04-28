@@ -113,7 +113,7 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
       addTaskToArray(theName.innerHTML, seconds.innerHTML, tries.innerHTML);
       addDataToLocalStorage(arrayOfElements);
 
-      document.getElementById("winner").play();
+      document.getElementById("bravo").play();
       setTimeout(() => {
         Win();
       }, 3000);
