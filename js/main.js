@@ -4,10 +4,10 @@ let theName = document.querySelector(".name span");
 // Select The Start Game Button
 document.querySelector(".control-buttons span").onclick = function () {
   // Prompt Window To Ask For Name
-  let yourName = prompt("Enter Your Name?");
+  let yourName = prompt("Enter Your Name !");
 
   if (yourName.length > 20) {
-    yourName = yourName.slice(0, 20);
+    yourName = yourName.slice(0, 15) + "...";
   }
 
   // If Name Is Empty
@@ -113,6 +113,7 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
       addTaskToArray(theName.innerHTML, seconds.innerHTML, tries.innerHTML);
       addDataToLocalStorage(arrayOfElements);
 
+      document.getElementById("back").remove();
       document.getElementById("bravo").play();
       setTimeout(() => {
         Win();
@@ -171,13 +172,12 @@ function Win() {
   document.querySelector(".win .time").innerHTML =
   document.querySelector(".counter span").innerHTML;
 
-}
+  document.querySelector(".reset").onclick = function() {
+    window.localStorage.clear();
+    document.querySelector(".details-container").remove();
+    document.querySelector(".reset").style.display = "none";
+  }
 
-document.querySelector(".reset").onclick = function() {
-  window.localStorage.clear();
-  console.log(document.querySelector(".details-container").children);
-  document.querySelector(".details-container").remove();
-  document.querySelector(".reset").style.display = "none";
 }
 
 function restartButton() {
